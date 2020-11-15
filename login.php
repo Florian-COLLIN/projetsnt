@@ -11,7 +11,7 @@ include("includes/init.php");
 		<link rel="stylesheet" href="includes/styles.css" />
 		<link rel="icon" href="img/icon.png" />
 	</head>
-	<body>
+	<body onload="on_page_loaded();">
 		<!-- Header -->
 		<?php include("includes/header.php"); ?>
 		<div class="jumbotron jumbotron-fluid bg-light">
@@ -27,7 +27,7 @@ include("includes/init.php");
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 col-md-6">
+				<div class="col-sm-12 col-md-6" id="div_connection">
 					<h3 class="font-weight-bold">Se connecter</h3>
 					<form method="post" action="login-verif.php">
 						<div class="form-row">
@@ -47,7 +47,7 @@ include("includes/init.php");
 						<button type="submit" class="btn btn-primary">Se connecter</button>
 					</form>
 				</div>
-				<div class="col-sm-12 col-md-6">
+				<div class="col-sm-12 col-md-6" id="div_inscription">
 					<h3 class="font-weight-bold">Créer un compte</h3>
 					<p>Un compte sert à commenter et liker les articles.</p>
 					<form method="post" action="create-account.php">
@@ -87,9 +87,9 @@ include("includes/init.php");
 		<br />
 		<!-- Footer -->
 		<?php include("includes/footer.php"); ?>
-		
 		<script src="jquery/jquery.slim.min.js"></script>
 		<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script src="includes/scripts.js"></script>
+		<script src="js/login.js" type="text"></script>
 	</body>
 </html>
