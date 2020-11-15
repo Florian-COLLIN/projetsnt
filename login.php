@@ -1,13 +1,5 @@
 <?php
-session_start();
-
-try {
-	$db = new PDO("mysql:host=localhost;dbname=le-point-k;charset=utf8", "root", "");
-}
-
-catch(Exception $e) {
-	die("Error : " . $e->getMessage());
-}
+include("includes/init.php");
 ?>
 <!DOCTYPE html>
 <html>
