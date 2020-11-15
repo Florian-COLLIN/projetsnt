@@ -2,7 +2,7 @@
 session_start();
 
 
-$file_path = "mysql-config.json";
+$file_path = "includes/mysql-config.json";
 
 function open_json($file_path){
     if( file_exists($file_path) ){
@@ -10,12 +10,14 @@ function open_json($file_path){
         $data = json_decode($texte, true);
     }
     else{
+		echo("File doesn't exists : ".$file_path);
         $data=[];
     }
     return $data;
 }
 
-$data_account = open_base($file_path)
+$data_account = open_json($file_path);
+
 $pseudo = $data_account["pseudo"];
 $password = $data_account["password"];
 $db_name = $data_account["db-name"];
