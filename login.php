@@ -33,15 +33,15 @@ include("includes/init.php");
 						<div class="form-row">
 							<div class="form-group col">
 								<label for="username">Nom</label>
-								<input type="text" class="form-control" id="username" required>
+								<input type="text" class="form-control" name="username" id="username" required>
 							</div>
 							<div class="form-group col">
 								<label for="password">Mot de passe</label>
-								<input type="password" class="form-control" id="password" required>
+								<input type="password" class="form-control" name="password" id="password" required>
 							</div>
 						</div>
 						<div class="form-group custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="cookiesLogin">
+							<input type="checkbox" class="custom-control-input" name="cookiesLogin" id="cookiesLogin">
 							<label class="custom-control-label" for="cookiesLogin">Garder la session active <?php include("includes/cookies.php"); ?></label>
 						</div>
 						<button type="submit" class="btn btn-primary">Se connecter</button>
@@ -54,21 +54,21 @@ include("includes/init.php");
 						<div class="form-row">
 							<div class="form-group col">
 								<label for="username">Nom*</label>
-								<input type="text" class="form-control" id="username" required>
+								<input type="text" class="form-control" name="username" id="username" required>
 							</div>
 							<div class="form-group col">
 								<label for="email">E-mail</label>
-								<input type="email" class="form-control" id="email">
+								<input type="email" class="form-control" name="email" id="email">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col">
 								<label for="password">Mot de passe*</label>
-								<input type="password" class="form-control" id="password" required>
+								<input type="password" class="form-control" name="password" id="password" required>
 							</div>
 							<div class="form-group col">
 								<label for="passwordConfirm">Confirmation*</label>
-								<input type="password" class="form-control" id="passwordConfirm" required>
+								<input type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" required>
 							</div>
 						</div>
 						<?php

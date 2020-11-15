@@ -1,7 +1,18 @@
 <?php
 include("includes/init.php");
 
+if(
+	!key_exists("password", $_POST) &&
+	!key_exists("passwordConfirm", $_POST) &&
+	!key_exists("username", $_POST) &&
+	!key_exists("math", $_POST) &&
+	!key_exists("email", $_POST)
+){
+	header("Location: login.php");
+}
+
 if($_POST["password"] != $_POST["passwordConfirm"]) {
+	echo("alert('Les mots de passe sont différents');");
 	header("Location: login.php");
 }
 
