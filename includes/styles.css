@@ -122,5 +122,12 @@ a {
 }
 
 .center {
-	text-align: center;s
+	text-align: center;
 }
+
+
+.col-milieu{
+    margin-left: auto;
+    margin-right: auto;
+}
+

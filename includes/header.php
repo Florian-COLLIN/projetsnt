@@ -27,7 +27,7 @@
 					}
 					$categories->closeCursor();
 					?>
-					
+
 				</ul>
 				<i class="fas fa-lg fa-search icon-search"> </i>
 				<div class="dropdown">
@@ -35,10 +35,10 @@
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="icon-user">
 					<?php
 						if(!isset($_SESSION["logged"]) or !$_SESSION["logged"]) {
-							?><a class="dropdown-item" href="login.php">Se connecter</a>
-							<a class="dropdown-item" href="login.php">Créer un compte</a><?php
+							?><a class="dropdown-item" href="login.php?type=connection">Se connecter</a>
+							<a class="dropdown-item" href="login.php?type=inscription">Créer un compte</a><?php
 						}
-				
+
 						else {
 							if(isset($_SESSION["writer"]) and $_SESSION["writer"]) {
 								?>

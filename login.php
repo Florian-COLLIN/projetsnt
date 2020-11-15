@@ -27,7 +27,7 @@ include("includes/init.php");
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 col-md-6" id="div_connection">
+				<div class="col-sm-12 col-md-6 col-milieu" id="div_connection">
 					<h3 class="font-weight-bold">Se connecter</h3>
 					<form method="post" action="login-verif.php">
 						<div class="form-row">
@@ -46,8 +46,9 @@ include("includes/init.php");
 						</div>
 						<button type="submit" class="btn btn-primary">Se connecter</button>
 					</form>
+					<p>Vous n'avez pas de compte ? <a href="#"" onclick="change_to_inscription();" style="color: blue;">Inscrivez vous</a></p>
 				</div>
-				<div class="col-sm-12 col-md-6" id="div_inscription">
+				<div class="col-sm-12 col-md-6 col-milieu" id="div_inscription">
 					<h3 class="font-weight-bold">Créer un compte</h3>
 					<p>Un compte sert à commenter et liker les articles.</p>
 					<form method="post" action="create-account.php">
@@ -81,6 +82,7 @@ include("includes/init.php");
 						</div>
 						<button type="submit" class="btn btn-success col-sm">Créer un compte</button>
 					</form>
+					<p>Vous avez déjà un compte ? <a href="#"" onclick="change_to_connection();"  style="color: blue;">Connectez vous</a></p>
 				</div>
 			</div>
 		</div>
@@ -90,6 +92,6 @@ include("includes/init.php");
 		<script src="jquery/jquery.slim.min.js"></script>
 		<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script src="includes/scripts.js"></script>
-		<script src="js/login.js" type="text"></script>
+		<script src="js/login.js" type="text/javascript"></script>
 	</body>
 </html>
