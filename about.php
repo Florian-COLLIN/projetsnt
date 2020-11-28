@@ -35,6 +35,7 @@ $_SESSION["currentPage"] = "about.php";
 							<p>Le PoinK (ou le Point-K ou le PoinKa) est un journal/site web créé par un groupe d'élève du lycée Henri-Poincaré de Nancy dans lequel sont publiés des articles d'actualité.</p>
 							<img src="img/logo.png" class="img img-rounded m-4" alt="Logo du journal le Point-K" />
 							<p>Il existe <span data-toggle="tooltip" title="Disponible uniquement au lycée Henri-Poincaré">sous forme papier</span>, et sous forme numérique (vous êtes actuellement dessus, en effet :)). Il est fort probable que le site web compte plus d'articles que le journal.</p>
+							<p>Nos rédacteurs en chefs : Aloïs Coquillard & Hector Leclerc</p>
 						</div>
 						<div class="col-sm-12 col-md-4">
 							<h3 class="font-weight-bold">Notre mission</h3>
