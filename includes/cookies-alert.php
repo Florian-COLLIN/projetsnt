@@ -8,7 +8,7 @@ if(!isset($_SESSION["cookies-alert"])) {
 			</div>
 			<div class="col">
 				<h4 class="alert-heading">Ce site utilise des cookies</h4>
-				<p>Ce site utilise de rares cookies pour certaines fonctionnalités. Si vous souhaitez cependant refuser toute utilisation des cookies, l'expérience ne sera que très peu changée et vous pourrez profiter de l'espace utilisateur. Une icône <?php include("includes/cookies.php"); ?> s'affichera pour vous prévenir de l'utilisation des cookies.</p>
+				<p>Ce site utilise de rares cookies pour certaines fonctionnalités. Si vous souhaitez cependant refuser toute utilisation des cookies, la différence sera moindre et vous pourrez profiter de l'espace utilisateur. Une icône <?php include("includes/cookies.php"); ?> s'affichera pour vous prévenir de l'utilisation des cookies.</p>
 			</div>
 		</div>
 		<button type="button" class="close align-content-center" onclick="<?php $_SESSION["cookies-alert"] = true; ?>" data-dismiss="alert" aria-label="Close">
