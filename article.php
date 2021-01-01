@@ -1,18 +1,18 @@
 <?php
 include("includes/init.php");
 
-$id = $_GET["id"];
+$id = (int)($_GET["id"]);
 
-$infosRequest = $db->prepare("SELECT a.title, a.author, a.date, a.time, a.main-category, c.name, c.color
+$infosArticleRequest = $db->prepare("SELECT a.title, a.author, a.date, a.time, a.main-category, c.name, c.color
 FROM articles a
 INNER JOIN categories c
 ON a.main-category = c.name
 WHERE a.id = :id");
-$infosRequest->execute(array(
-	"id" => $id;
+$infosArticleRequest->execute(array(
+	"id" => $id
 ));
 
-while ($infosArticle = $infosRequests->fetch()) {
+while ($infosArticle = $infosArticleRequest->fetch()) {
 	$title = $infosArticle["title"];
 	$author = $infosArticle["author"];
 	$publicationDate = $infosArticle["date"];
@@ -21,9 +21,9 @@ while ($infosArticle = $infosRequests->fetch()) {
 	$mainCategoryName = $infosArticle["name"];
 }
 
-$infosRequests->closeCursor();
+$infosArticleRequest->closeCursor();
 
-$_SESSION["currentPage"] = "article.php?id=" + $_GET["id"];
+$_SESSION["currentPage"] = "article.php?id=" . $id;
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +47,7 @@ $_SESSION["currentPage"] = "article.php?id=" + $_GET["id"];
 						<li class="breadcrumb-item active" aria-current="page"><?php echo($title); ?></li>
 					</ol>
 				</nav>
-				<h2 class="font-weight-bold">Article</h2>
+				<h2 class="font-weight-bold"><?php echo($title); ?></h2>
 			</div>
 		</div>
 		<div class="container">
