@@ -3,10 +3,12 @@ include("includes/init.php");
 
 $id = (int)($_GET["id"]);
 
-$infosArticleRequest = $db->prepare("SELECT a.title, a.author, a.date, a.time, a.main-category, c.name, c.color
+$infosArticleRequest = $db->prepare("SELECT a.title, a.author, a.date, a.time, a.mainCategory, c.name, c.color, u.realname
 FROM articles a
 INNER JOIN categories c
-ON a.main-category = c.name
+ON a.mainCategory = c.id
+INNER JOIN users u
+ON a.author = u.id
 WHERE a.id = :id");
 $infosArticleRequest->execute(array(
 	"id" => $id
@@ -14,10 +16,11 @@ $infosArticleRequest->execute(array(
 
 while ($infosArticle = $infosArticleRequest->fetch()) {
 	$title = $infosArticle["title"];
-	$author = $infosArticle["author"];
+	$authorId = $infosArticle["author"];
+	$author = $infosArticle["realname"];
 	$publicationDate = $infosArticle["date"];
 	$publicationTime = $infosArticle["time"];
-	$mainCategoryId = $infosArticle["main-category"];
+	$mainCategoryId = $infosArticle["mainCategory"];
 	$mainCategoryName = $infosArticle["name"];
 }
 
@@ -48,12 +51,28 @@ $_SESSION["currentPage"] = "article.php?id=" . $id;
 					</ol>
 				</nav>
 				<h2 class="font-weight-bold"><?php echo($title); ?></h2>
+				<p class="font-italic small">Par <?php echo($author); ?>, publié le <?php echo($publicationDate); ?> à <?php echo($publicationTime); ?></p>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 mb-4">
-					<h3 class="font-weight-bold"></h3>
+					<?php
+					
+					$articleContentRequest = $db->prepare("SELECT * FROM `articles-contents` WHERE article = 1 ORDER BY date DESC, time DESC LIMIT 1");
+					$articleContentRequest->execute(array(
+						"id" => $id
+					));
+					
+					while ($articleContent = $articleContentRequest->fetch())
+					{
+						$content = $articleContent["content"];
+					}
+					
+					$articleContentRequest->closeCursor();
+					
+					echo($content);
+					?>
 				</div>
 			</div>
 		</div>
