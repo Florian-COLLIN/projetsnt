@@ -38,7 +38,7 @@
 			<?php
 			$monthArray = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
 			?>
-			<p class="footer-copyright">Copyright © <?php echo($monthArray[date("m")-1]); ?> 2020 - Contenu déposé sous licence <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="footer-link">CC-BY-SA 4.0</a></p>
+			<p class="footer-copyright">Copyright © <?php echo($monthArray[date("m")-1] . " " . date("Y")); ?> - Contenu déposé sous licence <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="footer-link">CC-BY-SA 4.0</a></p>
 		</div>
 	</div>
 </footer>
