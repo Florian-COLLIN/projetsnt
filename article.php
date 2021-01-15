@@ -27,6 +27,27 @@ while ($infosArticle = $infosArticleRequest->fetch()) {
 $infosArticleRequest->closeCursor();
 
 $_SESSION["currentPage"] = "article.php?id=" . $id;
+
+$articleContentRequest = $db->prepare("SELECT *
+FROM `articles-contents` ac
+INNER JOIN users u
+ON ac.author = u.id
+WHERE article = 1
+ORDER BY date DESC, time DESC
+LIMIT 1");
+$articleContentRequest->execute(array(
+	"id" => $id
+));
+
+while ($articleContent = $articleContentRequest->fetch())
+{
+	$content = $articleContent["content"];
+	$updateAuthor = $articleContent["realname"];
+	$updateDate = $articleContent["date"];
+	$updateTime = $articleContent["time"];
+}
+
+$articleContentRequest->closeCursor();
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,28 +72,26 @@ $_SESSION["currentPage"] = "article.php?id=" . $id;
 					</ol>
 				</nav>
 				<h2 class="font-weight-bold"><?php echo($title); ?></h2>
-				<p class="font-italic small">Par <?php echo($author); ?>, publié le <?php echo($publicationDate); ?> à <?php echo($publicationTime); ?></p>
+				<?php
+				
+				if ($publicationDate == $updateDate && $publicationTime == $updateTime) {
+					?>
+					<p class="font-italic small">Par <?php echo($author); ?>, publié le <?php echo($publicationDate); ?> à <?php echo($publicationTime); ?></p>
+					<?php
+				}
+				
+				else {
+					?>
+					<p class="font-italic small">Par <?php echo($author); ?>, publié le <?php echo($publicationDate); ?> à <?php echo($publicationTime); ?>, mis à jour par <?php echo($updateAuthor); ?> le <?php echo($updateDate); ?> à <?php echo($updateTime); ?></p>
+					<?php
+				}
+				?>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 mb-4">
-					<?php
-					
-					$articleContentRequest = $db->prepare("SELECT * FROM `articles-contents` WHERE article = 1 ORDER BY date DESC, time DESC LIMIT 1");
-					$articleContentRequest->execute(array(
-						"id" => $id
-					));
-					
-					while ($articleContent = $articleContentRequest->fetch())
-					{
-						$content = $articleContent["content"];
-					}
-					
-					$articleContentRequest->closeCursor();
-					
-					echo($content);
-					?>
+					<?php echo($content); ?>
 				</div>
 			</div>
 		</div>
