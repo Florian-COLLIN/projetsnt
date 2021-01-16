@@ -27,26 +27,6 @@ $_SESSION["currentPage"] = "index.php";
 				<div class="col-sm-12 mb-4">
 					<h3 class="font-weight-bold mb-4">Articles récents</h3>
 					<div class="row">
-						<div class="card col-sm-6 col-md-4 col-lg-3">
-							<img src="https://raw.githubusercontent.com/nath54/Le_Point_K/master/articles/art_aerotrain/img_0.jpg" class="card-img-top img-responsive" />
-							<div class="card-body">
-								<div class="card-text">
-									<p class="small align-bottom">DD-MM-YYYY</p>
-									<h5 class="card-title">Card title</h5>
-									<p>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								</div>
-							</div>
-						</div>
-						<div class="card col-sm-6 col-md-4 col-lg-3">
-							<img src="https://raw.githubusercontent.com/nath54/Le_Point_K/230bcf5b5c8eb8e87b1352605b47378d68690198/articles/art_linux_vs_windows/post.svg" class="card-img-top img-responsive" />
-							<div class="card-body">
-								<div class="card-text">
-									<p class="small align-bottom">DD-MM-YYYY</p>
-									<h5 class="card-title">Card title</h5>
-									<p>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

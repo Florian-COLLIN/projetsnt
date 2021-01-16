@@ -89,11 +89,14 @@ $articleContentRequest->closeCursor();
 			</div>
 		</div>
 		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 mb-4">
+			<section class="row">
+				<article class="col-md-12 col-lg-9 mb-4 text-justify">
 					<?php echo($content); ?>
-				</div>
-			</div>
+				</article>
+				<aside class="col-md-12 col-lg-3 mb-4">
+					<h5 class="font-weight-bold">Derniers articles dans la catégorie <?php echo($mainCategoryName); ?></h5>
+				</aside>
+			</section>
 		</div>
 		
 		<!-- Footer -->

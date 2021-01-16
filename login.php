@@ -26,8 +26,8 @@ include("includes/init.php");
 			</div>
 		</div>
 		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-6 col-milieu" id="div_connection">
+			<div class="row justify-content-center">
+				<div class="col-sm-12 col-md-6" id="div_connection">
 					<h3 class="font-weight-bold">Se connecter</h3>
 					<form method="post" action="login-verif.php">
 						<div class="form-row">
@@ -44,11 +44,11 @@ include("includes/init.php");
 							<input type="checkbox" class="custom-control-input" name="cookiesLogin" id="cookiesLogin">
 							<label class="custom-control-label" for="cookiesLogin">Garder la session active <?php include("includes/cookies.php"); ?></label>
 						</div>
-						<button type="submit" class="btn btn-primary">Se connecter</button>
+						<button type="submit" class="btn btn-primary col-sm mb-2">Se connecter</button>
 					</form>
-					<p>Vous n'avez pas de compte ? <a href="#"" onclick="change_to_inscription();" style="color: blue;">Inscrivez vous</a></p>
+					<p>Vous n'avez pas de compte ? <a href="#" class="btn btn-sm btn-success" onclick="change_to_inscription();">Inscrivez-vous</a></p>
 				</div>
-				<div class="col-sm-12 col-md-6 col-milieu" id="div_inscription">
+				<div class="col-sm-12 col-md-6" id="div_inscription">
 					<h3 class="font-weight-bold">Créer un compte</h3>
 					<p>Un compte sert à commenter et liker les articles.</p>
 					<form method="post" action="create-account.php">
@@ -80,9 +80,9 @@ include("includes/init.php");
 							<label for="math"><?php echo($_SESSION["math1"]); ?> + <?php echo($_SESSION["math2"]); ?></label>
 							<input type="text" class="form-control" width="20" id="math" required>
 						</div>
-						<button type="submit" class="btn btn-success col-sm">Créer un compte</button>
+						<button type="submit" class="btn btn-success col-sm mb-2">Créer un compte</button>
 					</form>
-					<p>Vous avez déjà un compte ? <a href="#"" onclick="change_to_connection();"  style="color: blue;">Connectez vous</a></p>
+					<p>Vous avez déjà un compte ? <a href="#" class="btn btn-sm btn-primary" onclick="change_to_connection();">Connectez-vous</a></p>
 				</div>
 			</div>
 		</div>
