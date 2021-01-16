@@ -10,6 +10,9 @@
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
+						<a class="navbar-link" href="index.php"><i class="fas fa-home"></i> Accueil</a>
+					</li>
+					<li class="nav-item">
 						<a class="navbar-link" href="index.php">Récents</a>
 					</li>
 					<li class="nav-item">
