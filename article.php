@@ -71,7 +71,24 @@ $articleContentRequest->closeCursor();
 						<li class="breadcrumb-item active" aria-current="page"><?php echo($title); ?></li>
 					</ol>
 				</nav>
-				<h2 class="font-weight-bold"><?php echo($title); ?></h2>
+				<?php
+				
+				if (!isset($_SESSION["writer"]) or !$_SESSION["writer"]) {
+					?>
+					<h2 class="font-weight-bold"><?php echo($title); ?></h2>
+					<?php
+				}
+				
+				else {
+					?>
+					<h2 class="font-weight-bold"><?php echo($title); ?>
+					<a href="edit-article.php?id=<?php echo($id); ?>" class="small"><i class="fas fa-pen"></i></a>
+					<a href="article-history.php?id=<?php echo($id); ?>" class="small"><i class="fas fa-history"></i></a>
+					</h2>
+					<?php
+				}
+				
+				?>
 				<?php
 				
 				if ($publicationDate == $updateDate && $publicationTime == $updateTime) {
