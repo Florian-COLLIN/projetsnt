@@ -111,6 +111,7 @@ a {
 	padding: 0.4rem 0.5rem 0.4rem 0.5rem;
 	border-radius: 2px;
 	transition-duration: 0.5s;
+	font-weight: normal;
 }
 
 .icon-join:hover {
@@ -122,12 +123,66 @@ a {
 	margin-top: 2rem;
 }
 
-.card {
-	margin-left: 1rem;
-	margin-right: 1rem;
-}
-
 .center {
 	text-align: center;
 }
 
+.card-article {
+	height: 20rem;
+	width: 20rem;
+	overflow: hidden;
+	border-width: 1px;
+	border-style: solid;
+	margin: 1rem;
+}
+
+.card-article .card-img {
+	height: 20rem;
+	width: auto;
+	background-size: cover;
+	opacity: 100%;
+	transition-duration: 0.5s;
+}
+
+.card-article:hover .card-img {
+	opacity: 50%;
+}
+
+.card-article .card-img-overlay {
+	transition-duration: 0.5s;
+	height: 6rem;
+}
+
+.card-article:hover .card-img-overlay {
+	color: rgba(255, 255, 255, 1);
+	height: 100%;
+}
+
+.card-article .card-text {
+	-webkit-line-clamp: 4;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+.card-article .badge-pill {
+	opacity: 50%;
+	color: #fff;
+	transition-duration: 0.5s;
+}
+
+.card-article .badge-pill:hover {
+	opacity: 100%;
+}
+
+.card-article-content {
+	height: 0px;
+	opacity: 0%;
+	transition-duration: 0.5s;
+}
+
+.card-article:hover .card-article-content {
+	height: auto;
+	opacity: 100%;
+}
