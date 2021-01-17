@@ -136,6 +136,10 @@ a {
 	margin: 1rem;
 }
 
+.card-article .card-title {
+	text-shadow: 0 0 .2em #999;
+}
+
 .card-article .card-img {
 	height: 20rem;
 	width: auto;
