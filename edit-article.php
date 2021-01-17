@@ -65,7 +65,7 @@ else {
 				<div class="col-sm-12 col-md-9 mb-4">
 					<form method="post" action="post-article.php">
 						<div class="mb-2 row">
-							<div class="col-md-5 col-sm-12">
+							<div class="col-md-4 col-sm-12">
 								<label for="title">Titre <span class="small">(max 255)</span></label>
 								<input type="text" name="title" class="form-control" style="width: 100%;" maxlength="255" value="<?php echo($title); ?>" />
 							</div>
@@ -86,8 +86,22 @@ else {
 									?>
 								</select>
 							</div>
-							<div class="col-md-3 col-sm-12 justifiy-content-end">
-								<button class="btn btn-primary" type="submit"><i class="fas fa-file-signature"></i> Poster l'article</button>
+							<div class="col-md-4 col-sm-12">
+								<label for="image">Image principale</label>
+								<select class="custom-select" name="image">
+									<?php
+									
+									$listImagesRequest = $db->query("SELECT * FROM images");
+									
+									while ($listImages = $listImagesRequest->fetch()) {
+										?>
+										<option value="<?php echo($listImages["id"]); ?>"><?php echo($listImages["name"]); ?></option>
+										<?php
+									}
+									
+									$listImagesRequest->closeCursor();
+									?>
+								</select>
 							</div>
 						</div>
 						<div class="mb-2">

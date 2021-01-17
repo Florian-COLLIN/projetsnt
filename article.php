@@ -113,10 +113,12 @@ $articleContentRequest->closeCursor();
 				<aside class="col-md-12 col-lg-3 mb-4">
 					<h5 class="font-weight-bold">Derniers articles dans la catégorie <?php echo($mainCategoryName); ?></h5>
 					<?php
-						$articleListRequest = $db->prepare("SELECT a.id, a.title, a.author, a.date, a.time, a.mainCategory, c.name, c.color
+						$articleListRequest = $db->prepare("SELECT a.id, a.title, a.author, a.date, a.time, a.mainCategory, c.name, c.color, i.name imageName
 						FROM articles a
 						INNER JOIN categories c
 						ON a.mainCategory = c.id
+						INNER JOIN images i
+						ON a.image = i.id
 						WHERE a.mainCategory = :mainCategory
 						ORDER BY date DESC, time DESC
 						LIMIT 3");
@@ -137,7 +139,7 @@ $articleContentRequest->closeCursor();
 							while($articleContent = $articleContentRequest->fetch()) {
 								?>
 								<div class="card bg-dark text-white card-article" style="border-color: #<?php echo($articleList['color']); ?>;">
-									<img src="img/post.jpeg" class="card-img" alt="...">
+									<img src="img/<?php echo($articleList['imageName']); ?>" class="card-img" alt="...">
 									<div class="card-img-overlay" style="border-bottom: 8px solid #<?php echo($articleList['color']); ?>;">
 										<h5 class="card-title"><?php echo($articleList["title"]); ?></h5>
 											<div class="card-article-content">

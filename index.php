@@ -28,10 +28,12 @@ $_SESSION["currentPage"] = "index.php";
 					<h3 class="font-weight-bold mb-4">Articles récents</h3>
 					<div class="row">
 						<?php
-						$articleListRequest = $db->query("SELECT a.id, a.title, a.author, a.date, a.time, a.mainCategory, c.name, c.color
+						$articleListRequest = $db->query("SELECT a.id, a.title, a.author, a.date, a.time, a.mainCategory, c.name, c.color, i.name imageName
 						FROM articles a
 						INNER JOIN categories c
 						ON a.mainCategory = c.id
+						INNER JOIN images i
+						ON a.image = i.id
 						ORDER BY date DESC, time DESC
 						LIMIT 8");
 						
@@ -48,7 +50,7 @@ $_SESSION["currentPage"] = "index.php";
 							while($articleContent = $articleContentRequest->fetch()) {
 								?>
 								<div class="card bg-dark text-white card-article" style="border-color: #<?php echo($articleList['color']); ?>;">
-									<img src="img/post.jpeg" class="card-img" alt="...">
+									<img src="img/<?php echo($articleList['imageName']); ?>" class="card-img" alt="...">
 									<div class="card-img-overlay" style="border-bottom: 8px solid #<?php echo($articleList['color']); ?>;">
 										<h5 class="card-title"><?php echo($articleList["title"]); ?></h5>
 											<div class="card-article-content">

@@ -8,21 +8,24 @@ if(!isset($_SESSION["writer"]) or !$_SESSION["writer"]) {
 }
 
 if ($id == 0) {
-	$addArticle = $db->prepare("INSERT INTO `articles`(`title`, `author`, `date`, `time`, `mainCategory`) VALUES(:title, :author, NOW(), NOW(), :mainCategory)");
+	$addArticle = $db->prepare("INSERT INTO `articles`(`title`, `author`, `date`, `time`, `mainCategory`, `image`) VALUES(:title, :author, NOW(), NOW(), :mainCategory, :image)");
 	$addArticle->execute(array(
 		"title" => $_POST["title"],
 		"author" => $_SESSION["user-id"],
-		"mainCategory" => $_POST["mainCategory"]
+		"mainCategory" => $_POST["mainCategory"],
+		"image" => $_POST["image"]
 	));
 	
 	$id = $db->lastInsertId();
 }
 
 else {
-	$updateArticle = $db->prepare("UPDATE articles SET title = :title WHERE id = :id");
+	$updateArticle = $db->prepare("UPDATE articles SET title = :title, mainCategory = :mainCategory, image = :image WHERE id = :id");
 	$updateArticle->execute(array(
 		"id" => $id,
-		"title" => $_POST["title"]
+		"title" => $_POST["title"],
+		"mainCategory" => $_POST["mainCategory"],
+		"image" => $_POST["image"]
 	));
 }
 	
