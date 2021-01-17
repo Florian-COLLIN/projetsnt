@@ -32,7 +32,8 @@ $_SESSION["currentPage"] = "index.php";
 						FROM articles a
 						INNER JOIN categories c
 						ON a.mainCategory = c.id
-						ORDER BY date DESC, time DESC");
+						ORDER BY date DESC, time DESC
+						LIMIT 8");
 						
 						while($articleList = $articleListRequest->fetch()) {
 							$articleContentRequest = $db->prepare("SELECT *
