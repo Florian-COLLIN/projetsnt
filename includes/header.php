@@ -24,7 +24,7 @@
 					{
 						?>
 						<li class="nav-item" style="border-bottom: 4px solid #<?php echo($dataCategories['color']); ?>;">
-							<a class="navbar-link" href="category?id=<?php echo($dataCategories['id']); ?>"><?php echo($dataCategories['name']); ?></a>
+							<a class="navbar-link" href="categories.php?id=<?php echo($dataCategories['id']); ?>"><?php echo($dataCategories['name']); ?></a>
 						</li>
 						<?php
 					}
@@ -51,11 +51,11 @@
 							}
 							if(isset($_SESSION["admin"]) and $_SESSION["admin"]) {
 								?>
-								<a class="dropdown-item" href="account-management.php">Gérer les comptes</a>
+								<a class="dropdown-item disabled" href="account-management.php">Gérer les comptes</a>
 								<?php
 							}
 							?>
-							<a class="dropdown-item" href="account-settings.php">Paramètres du compte</a>
+							<a class="dropdown-item disabled" href="account-settings.php">Paramètres du compte</a>
 							<a class="dropdown-item" href="unlog.php">Se déconnecter</a>
 							<?php
 						}
