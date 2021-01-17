@@ -112,6 +112,50 @@ $articleContentRequest->closeCursor();
 				</article>
 				<aside class="col-md-12 col-lg-3 mb-4">
 					<h5 class="font-weight-bold">Derniers articles dans la catégorie <?php echo($mainCategoryName); ?></h5>
+					<?php
+						$articleListRequest = $db->prepare("SELECT a.id, a.title, a.author, a.date, a.time, a.mainCategory, c.name, c.color
+						FROM articles a
+						INNER JOIN categories c
+						ON a.mainCategory = c.id
+						WHERE a.mainCategory = :mainCategory
+						ORDER BY date DESC, time DESC
+						LIMIT 3");
+						$articleListRequest->execute(array(
+							"mainCategory" => $mainCategoryId
+						));
+						
+						while($articleList = $articleListRequest->fetch()) {
+							$articleContentRequest = $db->prepare("SELECT *
+							FROM `articles-contents`
+							WHERE article = :id
+							ORDER BY date DESC, time DESC
+							LIMIT 1");
+							$articleContentRequest->execute(array(
+								"id" => $articleList["id"]
+							));
+							
+							while($articleContent = $articleContentRequest->fetch()) {
+								?>
+								<div class="card bg-dark text-white card-article" style="border-color: #<?php echo($articleList['color']); ?>;">
+									<img src="img/post.jpeg" class="card-img" alt="...">
+									<div class="card-img-overlay" style="border-bottom: 8px solid #<?php echo($articleList['color']); ?>;">
+										<h5 class="card-title"><?php echo($articleList["title"]); ?></h5>
+											<div class="card-article-content">
+											<div class="card-text"><?php echo($articleContent["content"]); ?></div>
+											<div class="card-text"><a href="categories.php?id=<?php echo($articleList['mainCategory']); ?>" class="badge badge-pill" style="background-color: #<?php echo($articleList['color']); ?>;"><?php echo($articleList["name"]); ?></a></div>
+											<div class="card-text mt-auto"><a href="article.php?id=<?php echo($articleList['id']); ?>" class="btn btn-sm btn-secondary">Lire la suite... <i class="fas fa-angle-right"></i></a></div>
+											<div class="card-text small">Publié le <?php echo($articleList["date"]); ?> à <?php echo($articleList["time"]); ?></div>
+										</div>
+									</div>
+								</div>
+								<?php
+							}
+							
+							$articleContentRequest->closeCursor();
+						}
+						
+						$articleListRequest->closeCursor();
+						?>
 				</aside>
 			</section>
 		</div>
