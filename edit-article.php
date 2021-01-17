@@ -65,17 +65,34 @@ else {
 				<div class="col-sm-12 col-md-9 mb-4">
 					<form method="post" action="post-article.php">
 						<div class="mb-2 row">
-							<div class="col-md-9 col-sm-12">
+							<div class="col-md-5 col-sm-12">
 								<label for="title">Titre <span class="small">(max 255)</span></label>
-								<input type="text" name="title" class="form-control" style="width: 32rem;" maxlength="255" value="<?php echo($title); ?>" />
+								<input type="text" name="title" class="form-control" style="width: 100%;" maxlength="255" value="<?php echo($title); ?>" />
+							</div>
+							<div class="col-md-4 col-sm-12">
+								<label for="mainCategory">Catégorie principale</label>
+								<select class="custom-select" name="mainCategory">
+									<?php
+									
+									$listCategoriesRequest = $db->query("SELECT * FROM categories");
+									
+									while ($listCategories = $listCategoriesRequest->fetch()) {
+										?>
+										<option value="<?php echo($listCategories["id"]); ?>"><?php echo($listCategories["name"]); ?></option>
+										<?php
+									}
+									
+									$listCategoriesRequest->closeCursor();
+									?>
+								</select>
 							</div>
 							<div class="col-md-3 col-sm-12 justifiy-content-end">
 								<button class="btn btn-primary" type="submit"><i class="fas fa-file-signature"></i> Poster l'article</button>
 							</div>
 						</div>
 						<div class="mb-2">
-							<label for="content">Contenu</label>
-							<textarea class="form-control" name="content" style="height: 16rem;"><?php echo($content); ?></textarea>
+							<label for="content">Contenu en HTML</label>
+							<textarea class="form-control" name="content" style="min-height: 16rem; max-height: 32rem;"><?php echo($content); ?></textarea>
 						</div>
 						<button class="btn btn-primary" type="submit"><i class="fas fa-file-signature"></i> Poster l'article</button>
 					</form>

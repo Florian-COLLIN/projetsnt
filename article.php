@@ -32,7 +32,7 @@ $articleContentRequest = $db->prepare("SELECT *
 FROM `articles-contents` ac
 INNER JOIN users u
 ON ac.author = u.id
-WHERE article = 1
+WHERE article = :id
 ORDER BY date DESC, time DESC
 LIMIT 1");
 $articleContentRequest->execute(array(

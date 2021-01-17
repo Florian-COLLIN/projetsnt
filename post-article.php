@@ -8,10 +8,11 @@ if(!isset($_SESSION["writer"]) or !$_SESSION["writer"]) {
 }
 
 if ($id == 0) {
-	$addArticle = $db->prepare("INSERT INTO `articles`(title, author, date, time) VALUES(:title, :author, NOW(), NOW())");
+	$addArticle = $db->prepare("INSERT INTO `articles`(`title`, `author`, `date`, `time`, `mainCategory`) VALUES(:title, :author, NOW(), NOW(), :mainCategory)");
 	$addArticle->execute(array(
 		"title" => $_POST["title"],
-		"author" => $_SESSION["user-id"]
+		"author" => $_SESSION["user-id"],
+		"mainCategory" => $_POST["mainCategory"]
 	));
 	
 	$id = $db->lastInsertId();
