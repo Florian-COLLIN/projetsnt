@@ -21,13 +21,14 @@ $data_account = open_json($file_path);
 $pseudo = $data_account["pseudo"];
 $password = $data_account["password"];
 $db_name = $data_account["db-name"];
+$port = $data_account["port"];
 
 if (isset($_COOKIE["logged"]) and $_COOKIE["logged"] = true) {
 	$_SESSION["logged"] = true;
 }
 
 try {
-	$db = new PDO("mysql:host=localhost;dbname=".$db_name.";charset=utf8", $pseudo, $password);
+	$db = new PDO("mysql:host=localhost;dbname=$db_name;port=$port;charset=utf8", $pseudo, $password);
 }
 
 catch(Exception $e) {
