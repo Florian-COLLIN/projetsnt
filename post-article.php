@@ -15,7 +15,6 @@ if ($id == 0) {
 		"mainCategory" => $_POST["mainCategory"],
 		"image" => $_POST["image"]
 	));
-	
 	$id = $db->lastInsertId();
 }
 
@@ -28,7 +27,6 @@ else {
 		"image" => $_POST["image"]
 	));
 }
-	
 $addArticleContent = $db->prepare("INSERT INTO `articles-contents`(article, content, author, date, time) VALUES(:article, :content, :author, NOW(), NOW())");
 $addArticleContent->execute(array(
 	"article" => $id,
