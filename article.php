@@ -113,7 +113,7 @@ $articleContentRequest->closeCursor();
 			</div>
 		</div>
 		<div class="container">
-			<section class="row">
+			<section class="row justify-content-center">
 				<article class="col-md-12 col-lg-9 mb-4 text-justify">
 					<?php echo($content); ?>
 				</article>

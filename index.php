@@ -26,7 +26,7 @@ $_SESSION["currentPage"] = "index.php";
 			<div class="row">
 				<div class="col-sm-12 mb-4">
 					<h3 class="font-weight-bold mb-4">Articles récents</h3>
-					<div class="row">
+					<div class="row justify-content-center">
 						<?php
 						$articleListRequest = $db->query("SELECT a.id, a.title, a.author, a.date, a.time, a.mainCategory, a.published, c.name, c.color, i.name imageName
 						FROM articles a

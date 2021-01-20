@@ -37,7 +37,7 @@ while ($infosCategory = $infosCategoryRequest->fetch()) {
 			<div class="row">
 				<div class="col-sm-12 mb-4">
 					<h3 class="font-weight-bold mb-4">Articles récents</h3>
-					<div class="row">
+					<div class="row justify-content-center">
 						<?php
 						$articleListRequest = $db->prepare("SELECT a.id, a.title, a.author, a.date, a.time, a.mainCategory, c.name, c.color, i.name imageName
 						FROM articles a

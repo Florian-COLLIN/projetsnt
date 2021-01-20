@@ -29,7 +29,7 @@ $search = $_POST["search"];
 			</div>
 		</div>
 		<div class="container">
-			<section class="row">
+			<section class="row justify-content-center">
 				<?php
 				$searchArticlesTitlesRequest = $db->prepare("SELECT a.id, a.title, a.author, a.date, a.time, a.mainCategory, a.published, c.name, c.color, i.name imageName
 				FROM articles a
