@@ -72,12 +72,13 @@ $articleContentRequest->closeCursor();
 					</ol>
 				</nav>
 				<?php
-
+				
 				if (!isset($_SESSION["writer"]) or !$_SESSION["writer"]) {
 					?>
 					<h2 class="font-weight-bold"><?php echo($title); ?></h2>
 					<?php
 				}
+				
 				else {
 					?>
 					<h2 class="font-weight-bold"><?php echo($title); ?>
@@ -86,15 +87,16 @@ $articleContentRequest->closeCursor();
 					</h2>
 					<?php
 				}
-
+				
 				?>
 				<?php
-
+				
 				if ($publicationDate == $updateDate && $publicationTime == $updateTime) {
 					?>
 					<p class="font-italic small">Par <?php echo($author); ?>, publié le <?php echo($publicationDate); ?> à <?php echo($publicationTime); ?></p>
 					<?php
 				}
+				
 				else {
 					?>
 					<p class="font-italic small">Par <?php echo($author); ?>, publié le <?php echo($publicationDate); ?> à <?php echo($publicationTime); ?>, mis à jour par <?php echo($updateAuthor); ?> le <?php echo($updateDate); ?> à <?php echo($updateTime); ?></p>
@@ -123,6 +125,7 @@ $articleContentRequest->closeCursor();
 						$articleListRequest->execute(array(
 							"mainCategory" => $mainCategoryId
 						));
+						
 						while($articleList = $articleListRequest->fetch()) {
 							$articleContentRequest = $db->prepare("SELECT *
 							FROM `articles-contents`
@@ -132,15 +135,15 @@ $articleContentRequest->closeCursor();
 							$articleContentRequest->execute(array(
 								"id" => $articleList["id"]
 							));
+							
 							while($articleContent = $articleContentRequest->fetch()) {
 								?>
 								<div class="card bg-dark text-white card-article" style="border-color: #<?php echo($articleList['color']); ?>;">
 									<img src="img/<?php echo($articleList['imageName']); ?>" class="card-img" alt="...">
-									<div class="card-img-overlay" style="border-bottom: 8px solid #<?php echo($articleList['color']); ?>;">
+									<div class="card-img-overlay" style="border-bottom-color: #<?php echo($articleList['color']); ?>;">
 										<h5 class="card-title"><?php echo($articleList["title"]); ?></h5>
 											<div class="card-article-content">
-											<!-- <div class="card-text">?php echo($articleContent["content"]); ?></div> -->
-											<!-- A rajouter : un joli bouton qui renvoie vers 'articles.php?id=$idarticle' -->
+											<div class="card-text"><?php echo($articleContent["content"]); ?></div>
 											<div class="card-text"><a href="categories.php?id=<?php echo($articleList['mainCategory']); ?>" class="badge badge-pill" style="background-color: #<?php echo($articleList['color']); ?>;"><?php echo($articleList["name"]); ?></a></div>
 											<div class="card-text mt-auto"><a href="article.php?id=<?php echo($articleList['id']); ?>" class="btn btn-sm btn-secondary">Lire la suite... <i class="fas fa-angle-right"></i></a></div>
 											<div class="card-text small">Publié le <?php echo($articleList["date"]); ?> à <?php echo($articleList["time"]); ?></div>
@@ -149,15 +152,19 @@ $articleContentRequest->closeCursor();
 								</div>
 								<?php
 							}
+							
 							$articleContentRequest->closeCursor();
 						}
+						
 						$articleListRequest->closeCursor();
 						?>
 				</aside>
 			</section>
 		</div>
+		
 		<!-- Footer -->
 		<?php include("includes/footer.php"); ?>
+		
 		<script src="jquery/jquery.slim.min.js"></script>
 		<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script src="includes/scripts.js"></script>

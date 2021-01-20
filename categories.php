@@ -51,6 +51,7 @@ while ($infosCategory = $infosCategoryRequest->fetch()) {
 						$articleListRequest->execute(array(
 							"mainCategory" => $id
 						));
+						
 						while($articleList = $articleListRequest->fetch()) {
 							$articleContentRequest = $db->prepare("SELECT *
 							FROM `articles-contents`
@@ -60,15 +61,15 @@ while ($infosCategory = $infosCategoryRequest->fetch()) {
 							$articleContentRequest->execute(array(
 								"id" => $articleList["id"]
 							));
+							
 							while($articleContent = $articleContentRequest->fetch()) {
 								?>
 								<div class="card bg-dark text-white card-article" style="border-color: #<?php echo($articleList['color']); ?>;">
 									<img src="img/<?php echo($articleList['imageName']); ?>" class="card-img" alt="...">
-									<div class="card-img-overlay" style="border-bottom: 8px solid #<?php echo($articleList['color']); ?>;">
+									<div class="card-img-overlay" style="border-bottom-color: #<?php echo($articleList['color']); ?>;">
 										<h5 class="card-title"><?php echo($articleList["title"]); ?></h5>
 											<div class="card-article-content">
-											<!-- <div class="card-text">?php echo($articleContent["content"]); ?></div> -->
-											<!-- A rajouter : un joli bouton qui renvoie vers 'articles.php?id=$idarticle' -->
+											<div class="card-text"><?php echo($articleContent["content"]); ?></div>
 											<div class="card-text"><a href="categories.php?id=<?php echo($articleList['mainCategory']); ?>" class="badge badge-pill" style="background-color: #<?php echo($articleList['color']); ?>;"><?php echo($articleList["name"]); ?></a></div>
 											<div class="card-text mt-auto"><a href="article.php?id=<?php echo($articleList['id']); ?>" class="btn btn-sm btn-secondary">Lire la suite... <i class="fas fa-angle-right"></i></a></div>
 											<div class="card-text small">Publié le <?php echo($articleList["date"]); ?> à <?php echo($articleList["time"]); ?></div>
@@ -77,16 +78,20 @@ while ($infosCategory = $infosCategoryRequest->fetch()) {
 								</div>
 								<?php
 							}
+							
 							$articleContentRequest->closeCursor();
 						}
+						
 						$articleListRequest->closeCursor();
 						?>
 					</div>
 				</div>
 			</div>
 		</div>
+		
 		<!-- Footer -->
 		<?php include("includes/footer.php"); ?>
+		
 		<script src="jquery/jquery.slim.min.js"></script>
 		<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script src="includes/scripts.js"></script>
