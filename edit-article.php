@@ -25,8 +25,8 @@ else {
 	
 	while ($articleInfos = $articleInfosRequest->fetch()) {
 		$title = $articleInfos["title"];
-		$mainCategory = $articlesInfos["mainCategory"];
-		$image = $articlesInfos["image"];
+		$mainCategory = $articleInfos["mainCategory"];
+		$image = $articleInfos["image"];
 	}
 	
 	$articleInfosRequest->closeCursor;
