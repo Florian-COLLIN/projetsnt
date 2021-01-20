@@ -69,7 +69,7 @@ while ($infosCategory = $infosCategoryRequest->fetch()) {
 									<div class="card-img-overlay" style="border-bottom-color: #<?php echo($articleList['color']); ?>;">
 										<h5 class="card-title"><?php echo($articleList["title"]); ?></h5>
 											<div class="card-article-content">
-											<div class="card-text"><?php echo($articleContent["content"]); ?></div>
+											<div class="card-text"><?php echo(substr($articleContent["content"],0 ,140)."..."); ?></div>
 											<div class="card-text"><a href="categories.php?id=<?php echo($articleList['mainCategory']); ?>" class="badge badge-pill" style="background-color: #<?php echo($articleList['color']); ?>;"><?php echo($articleList["name"]); ?></a></div>
 											<div class="card-text mt-auto"><a href="article.php?id=<?php echo($articleList['id']); ?>" class="btn btn-sm btn-secondary">Lire la suite... <i class="fas fa-angle-right"></i></a></div>
 											<div class="card-text small">Publié le <?php echo($articleList["date"]); ?> à <?php echo($articleList["time"]); ?></div>

@@ -62,7 +62,7 @@ $search = $_POST["search"];
 							<div class="card-img-overlay" style="border-bottom-color: #<?php echo($searchArticlesTitles['color']); ?>;">
 								<h5 class="card-title"><?php echo($searchArticlesTitles["title"]); ?></h5>
 									<div class="card-article-content">
-									<div class="card-text"><?php echo($articleContent["content"]); ?></div>
+									<div class="card-text"><?php echo(substr($articleContent["content"],0 ,140)."..."); ?></div>
 									<div class="card-text"><a href="categories.php?id=<?php echo($searchArticlesTitles['mainCategory']); ?>" class="badge badge-pill" style="background-color: #<?php echo($searchArticlesTitles['color']); ?>;"><?php echo($searchArticlesTitles["categoryName"]); ?></a></div>
 									<div class="card-text mt-auto"><a href="article.php?id=<?php echo($searchArticlesTitles['id']); ?>" class="btn btn-sm btn-secondary">Lire la suite... <i class="fas fa-angle-right"></i></a></div>
 									<div class="card-text small">Publié le <?php echo($searchArticlesTitles["date"]); ?> à <?php echo($searchArticlesTitles["time"]); ?></div>
