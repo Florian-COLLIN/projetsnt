@@ -55,7 +55,7 @@ header {
 }
 
 .navbar-link {
-	color: #bbb;
+	color: #aaa;
 	font-weight: 400;
 	transition-duration: 0.5s;
 }
@@ -93,7 +93,7 @@ a {
 }
 
 .footer-link {
-	color: #bbb;
+	color: #aaa;
 	margin-top: 0.2rem;
 	transition-duration: 0.5s;
 }
@@ -119,7 +119,7 @@ a {
 }
 
 .footer-copyright {
-	color: #bbb;
+	color: #aaa;
 	margin-top: 2rem;
 }
 
