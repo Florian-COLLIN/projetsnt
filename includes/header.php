@@ -1,6 +1,6 @@
 <header class="sticky-top bg-white">
 	<div>
-		<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbar">
 			<a class="navbar-brand" href="index.php">
 				<img src="img/logo.png" class="navbar-brand-img" alt="Logo du journal Le Point K" />
 			</a>
@@ -34,7 +34,7 @@
 				?>
 				</div>
 			</div>
-			<i class="fas fa-lg fa-search icon-search d-none d-sm-block d-md-none"> </i>
+			<i class="fas fa-lg fa-search icon-search d-none d-sm-block d-md-none" onclick="enableSearch()"> </i>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -92,15 +92,17 @@
 					?>
 					</div>
 				</div>
-				<i class="fas fa-lg fa-search icon-search d-sm-none d-md-block"> </i>
+				<i class="fas fa-lg fa-search icon-search d-sm-none d-md-block" onclick="enableSearch()"> </i>
 			</div>
 		</nav>
-		<form class="search-form d-none" method="post" action="search.php">
+		<form class="search-form" method="post" action="search.php" id="searchForm" style="display: none;">
 			<div class="input-group">
 				<input type="text" class="form-control" placeholder="Search..." name="search" id="search" />
-				<button class="btn btn-outline-secondary" type="submit"><i class="fas fa-lg fa-search"> </i></button>
+				<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"> </i></button>
+					<button type="button" class="close ml-3" aria-label="Close" onclick="disableSearch()"><span aria-hidden="true">&times;</span></button>
+				</div>
 			</div>
-			<button type="button" class="btn-close close-search" aria-label="Close"></button>
 		</form>
 	</div>
 </header>
