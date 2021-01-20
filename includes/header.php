@@ -1,6 +1,6 @@
 <header class="sticky-top bg-white">
 	<div>
-		<nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-white">
 			<a class="navbar-brand" href="index.php">
 				<img src="img/logo.png" class="navbar-brand-img" alt="Logo du journal Le Point K" />
 			</a>

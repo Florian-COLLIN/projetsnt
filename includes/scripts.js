@@ -17,12 +17,10 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 });
 
-function enableSearch() { // a mettre dans le onclick du bouton : "toggle_search();"
+function enableSearch() {
  	document.getElementById("searchForm").style.display = "flex";
 }
 
 function disableSearch() {
  	document.getElementById("searchForm").style.display = "none";
 }
-// pour le submit :
-// document.getElementById("search-form").submit();
