@@ -94,7 +94,13 @@
 				</div>
 				<i class="fas fa-lg fa-search icon-search d-sm-none d-md-block"> </i>
 			</div>
-			
 		</nav>
+		<form class="search-form d-none" method="post" action="search.php">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search..." name="search" id="search" />
+				<button class="btn btn-outline-secondary" type="submit"><i class="fas fa-lg fa-search"> </i></button>
+			</div>
+			<button type="button" class="btn-close close-search" aria-label="Close"></button>
+		</form>
 	</div>
 </header>
