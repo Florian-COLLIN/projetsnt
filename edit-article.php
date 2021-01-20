@@ -26,6 +26,7 @@ else {
 	while ($articleInfos = $articleInfosRequest->fetch()) {
 		$title = $articleInfos["title"];
 		$mainCategory = $articlesInfos["mainCategory"];
+		$image = $articlesInfos["image"];
 	}
 	
 	$articleInfosRequest->closeCursor;
@@ -74,12 +75,19 @@ else {
 								<select class="custom-select" name="mainCategory">
 									<?php
 									
-									$listCategoriesRequest = $db->query("SELECT * FROM categories");
+									$listCategoriesRequest = $db->query("SELECT id, name FROM categories");
 									
 									while ($listCategories = $listCategoriesRequest->fetch()) {
-										?>
-										<option value="<?php echo($listCategories["id"]); ?>"><?php echo($listCategories["name"]); ?></option>
-										<?php
+										if ($listCategories["id"] == $mainCategory) {
+											?>
+											<option value="<?php echo($listCategories["id"]); ?>" selected><?php echo($listCategories["name"]); ?></option>
+											<?php
+										}
+										else {
+											?>
+											<option value="<?php echo($listCategories["id"]); ?>"><?php echo($listCategories["name"]); ?></option>
+											<?php
+										}
 									}
 									
 									$listCategoriesRequest->closeCursor();
@@ -91,12 +99,19 @@ else {
 								<select class="custom-select" name="image">
 									<?php
 									
-									$listImagesRequest = $db->query("SELECT * FROM images");
+									$listImagesRequest = $db->query("SELECT id, name FROM images");
 									
 									while ($listImages = $listImagesRequest->fetch()) {
-										?>
-										<option value="<?php echo($listImages["id"]); ?>"><?php echo($listImages["name"]); ?></option>
-										<?php
+										if ($listImages["id"] == $image) {
+											?>
+											<option value="<?php echo($listImages["id"]); ?>" selected><?php echo($listImages["name"]); ?></option>
+											<?php
+										}
+										else {
+											?>
+											<option value="<?php echo($listImages["id"]); ?>"><?php echo($listImages["name"]); ?></option>
+											<?php
+										}
 									}
 									
 									$listImagesRequest->closeCursor();
@@ -116,7 +131,7 @@ else {
 					<p><code>&ltp&gt&lt/p&gt</code> pour un paragraphe<br />
 					<code>&ltimg src="img/monimage.jpg" /&gt</code> pour une image<br />
 					<code><b>&ltb&gt</b></code>, <code><i>&lti&gt</i></code>, <code><u>&ltu&gt</u></code><br />
-					<code><span style="color: #f00;">&ltspan style="color: #f00 / red;"&gt</span></code> pour un peu de couleur...<br />
+					<code><span style="color: #00f;">&ltspan style="color: #00f / blue;"&gt</span></code> pour un peu de couleur...<br />
 					<code>&lth1&gt</code>, <code>&lth2&gt</code>, ... <code>&lth6&gt</code> pour mettre quelques titres...<br />
 					<code>&ltul&gt</code> / <code>&ltol&gt</code> pour liste ordonnée (ol) ou pas (ul)...<br />
 					<code>&ltli&gt</code> et ses élements...<br />
