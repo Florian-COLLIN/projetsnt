@@ -2,5 +2,5 @@
     "pseudo": "le-point-k",
     "password": "k-p-ointlek",
     "db-name": "le-point-k",
-    "port": 3307
+    "port": 3306
 }
