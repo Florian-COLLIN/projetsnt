@@ -121,7 +121,7 @@ else {
 						</div>
 						<div class="mb-2">
 							<label for="content">Contenu en HTML</label>
-							<textarea class="form-control" name="content" style="min-height: 16rem; max-height: 32rem;"><?php echo($content); ?></textarea>
+							<textarea class="form-control" name="content" style="min-height: 16rem; max-height: 32rem;"><?php echo htmlspecialchars($content); ?></textarea>
 						</div>
 						<button class="btn btn-primary" type="submit"><i class="fas fa-file-signature"></i> Poster l'article</button>
 					</form>
