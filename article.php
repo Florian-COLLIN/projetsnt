@@ -9,10 +9,14 @@ INNER JOIN categories c
 ON a.mainCategory = c.id
 INNER JOIN users u
 ON a.author = u.id
-WHERE a.id = :id");
+WHERE a.id = :id
+AND a.published = 1
+");
 $infosArticleRequest->execute(array(
 	"id" => $id
 ));
+
+$published = false;
 
 while ($infosArticle = $infosArticleRequest->fetch()) {
 	$title = $infosArticle["title"];
@@ -22,6 +26,7 @@ while ($infosArticle = $infosArticleRequest->fetch()) {
 	$publicationTime = $infosArticle["time"];
 	$mainCategoryId = $infosArticle["mainCategory"];
 	$mainCategoryName = $infosArticle["name"];
+	$published = true;
 }
 
 $infosArticleRequest->closeCursor();
@@ -41,10 +46,12 @@ $articleContentRequest->execute(array(
 
 while ($articleContent = $articleContentRequest->fetch())
 {
-	$content = $articleContent["content"];
-	$updateAuthor = $articleContent["realname"];
-	$updateDate = $articleContent["date"];
-	$updateTime = $articleContent["time"];
+	if($published) {
+		$content = $articleContent["content"];
+		$updateAuthor = $articleContent["realname"];
+		$updateDate = $articleContent["date"];
+		$updateTime = $articleContent["time"];
+	}
 }
 
 $articleContentRequest->closeCursor();
@@ -120,6 +127,7 @@ $articleContentRequest->closeCursor();
 						INNER JOIN images i
 						ON a.image = i.id
 						WHERE a.mainCategory = :mainCategory
+						AND a.published = 1
 						ORDER BY date DESC, time DESC
 						LIMIT 3");
 						$articleListRequest->execute(array(

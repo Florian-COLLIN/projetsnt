@@ -123,7 +123,13 @@ else {
 							<label for="content">Contenu en HTML</label>
 							<textarea class="form-control" name="content" style="min-height: 16rem; max-height: 32rem;"><?php echo htmlspecialchars($content); ?></textarea>
 						</div>
-						<button class="btn btn-primary" type="submit"><i class="fas fa-file-signature"></i> Poster l'article</button>
+						<div class="row">
+							<button class="btn btn-success" type="submit"><i class="fas fa-file-signature"></i> Poster l'article</button>
+							<div class="custom-control custom-checkbox ml-2 mt-2">
+								<input type="checkbox" class="custom-control-input" name="publish" id="publish" checked />
+								<label class="custom-control-label" for="publish">Publier l'article</label>
+							</div>
+						</div>
 					</form>
 				</div>
 				<div class="col-sm-12 col-md-3">

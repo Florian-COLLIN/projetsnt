@@ -28,14 +28,16 @@ $_SESSION["currentPage"] = "index.php";
 					<h3 class="font-weight-bold mb-4">Articles récents</h3>
 					<div class="row">
 						<?php
-						$articleListRequest = $db->query("SELECT a.id, a.title, a.author, a.date, a.time, a.mainCategory, c.name, c.color, i.name imageName
+						$articleListRequest = $db->query("SELECT a.id, a.title, a.author, a.date, a.time, a.mainCategory, a.published, c.name, c.color, i.name imageName
 						FROM articles a
 						INNER JOIN categories c
 						ON a.mainCategory = c.id
 						INNER JOIN images i
 						ON a.image = i.id
+						WHERE a.published = 1
 						ORDER BY date DESC, time DESC
-						LIMIT 8");
+						LIMIT 8
+						");
 						
 						while($articleList = $articleListRequest->fetch()) {
 							$articleContentRequest = $db->prepare("SELECT *
