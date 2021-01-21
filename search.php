@@ -38,7 +38,7 @@ $search = $_POST["search"];
 				INNER JOIN images i
 				ON a.image = i.id
 				WHERE a.published = 1
-				AND LOWER(title) COLLATE Latin1_General_CI_AI LIKE LOWER(:search) COLLATE Latin1_General_CI_AI
+				AND LOWER(title) LIKE LOWER(:search)
 				ORDER BY date DESC, time DESC
 				LIMIT 8");
 				$searchArticlesTitlesRequest->execute(array(
