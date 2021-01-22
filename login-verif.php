@@ -44,6 +44,7 @@ else {
 	
 	if(isset($_POST["cookiesLogin"])) {
 		setcookie("logged", true, time()+(30*86400));
+		setcookie("loginId", $_SESSION["user-id"], time()+(30*86400));
 	}
 	
 	header("Location: index.php");

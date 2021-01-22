@@ -28,6 +28,7 @@
 						</li>
 						<?php
 					}
+					
 					$categories->closeCursor();
 					?>
 
@@ -36,10 +37,14 @@
 				<div class="dropdown">
 					<i class="fas fa-lg fa-user icon-user" id="icon-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </i>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="icon-user">
-					<?php
+						<?php
+						echo("");
+						
 						if(!isset($_SESSION["logged"]) or !$_SESSION["logged"]) {
-							?><a class="dropdown-item" href="login.php?type=connection">Se connecter</a>
-							<a class="dropdown-item" href="login.php?type=inscription">Créer un compte</a><?php
+							?>
+							<a class="dropdown-item" href="login.php?type=connection">Se connecter</a>
+							<a class="dropdown-item" href="login.php?type=inscription">Créer un compte</a>
+							<?php
 						}
 
 						else {
@@ -59,7 +64,7 @@
 							<a class="dropdown-item" href="unlog.php">Se déconnecter</a>
 							<?php
 						}
-					?>
+						?>
 					</div>
 				</div>
 			<i class="fas fa-lg fa-bars icon-menu"> </i>
