@@ -9,7 +9,7 @@
 				<i class="fas fa-lg fa-user icon-user" id="icon-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </i>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="icon-user">
 				<?php
-				echo "<script>alert(".$_SESSION[""].");</script>";
+				// echo "<script>alert(".$_SESSION["id"].");</script>";
 				if(!isset($_SESSION["logged"]) || !$_SESSION["logged"]) {
 					?><a class="dropdown-item" href="login.php?type=connection">Se connecter</a>
 					<a class="dropdown-item" href="login.php?type=inscription">Créer un compte</a><?php

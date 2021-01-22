@@ -7,5 +7,8 @@ $_SESSION["email"] = "";
 $_SESSION["writer"] = false;
 $_SESSION["admin"] = false;
 
+// Faut aussi enlever les cookies qui ont pu être enregistrés
+$_COOKIE["logged"] = false;
+
 header("Location: index.php");
 ?>

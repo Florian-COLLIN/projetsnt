@@ -32,6 +32,6 @@ try {
 }
 
 catch(Exception $e) {
-	die("Error : " . $e->getMessage());
+	die("Error : " . $e->getMessage()); // C'est pas très sécurisé de montrer le message à tout le monde
 }
 ?>
