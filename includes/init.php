@@ -23,15 +23,38 @@ $password = $data_account["password"];
 $db_name = $data_account["db-name"];
 $port = $data_account["port"];
 
-if (isset($_COOKIE["logged"]) and $_COOKIE["logged"] = true) {
-	$_SESSION["logged"] = true;
-}
-
 try {
-	$db = new PDO("mysql:host=localhost;dbname=$db_name;port=$port;charset=utf8", $pseudo, $password);
+	$db = new PDO("mysql:host=localhost;dbname=" . $db_name . ";port=" . $port . ";charset=utf8", $pseudo, $password);
 }
 
 catch(Exception $e) {
-	die("Error : " . $e->getMessage()); // C'est pas très sécurisé de montrer le message à tout le monde
+	die("Error : " . $e->getMessage());
+}
+
+if (isset($_COOKIE["logged"]) and $_COOKIE["logged"] = true) {
+	$_SESSION["logged"] = true;
+	$_SESSION["user-id"] = $_COOKIE["user-id"];
+	
+	$searchWriter = $db->prepare("SELECT * FROM writers WHERE user = :user");
+	$searchWriter->execute(array(
+		"user" => $_SESSION["user-id"]
+	));
+	
+	$writer = $searchWriter->fetch();
+	
+	if($writer) {
+		$_SESSION["writer"] = true;
+	}
+	
+	$searchAdmin = $db->prepare("SELECT * FROM admins WHERE user = :user");
+	$searchAdmin->execute(array(
+		"user" => $_SESSION["user-id"]
+	));
+	
+	$admin = $searchAdmin->fetch();
+	
+	if($admin) {
+		$_SESSION["admin"] = true;
+	}
 }
 ?>
