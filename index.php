@@ -74,10 +74,39 @@ $_SESSION["currentPage"] = "index.php";
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="jumbotron jumbotron-fluid bg-light">
-			<div class="container">
-				<h2 class="center">En avant</h2>
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-4">
+					<table class="table align-middle">
+						<thead>
+							<tr>
+								<th style="border-top: none;" colspan="2">Toutes les catégories</th>
+							</tr>
+						</thead>
+						<tbody>
+						  	<?php
+						  	$listCategoriesRequest = $db->query("SELECT * FROM categories");
+						  	
+						  	while ($listCategories = $listCategoriesRequest->fetch()) {
+						  		$numberArticlesCategories = 0;
+						  		$numberArticlesCategoriesRequest = $db->prepare("SELECT * FROM articles WHERE mainCategory = :id");
+						  		$numberArticlesCategoriesRequest->execute(array(
+						  			"id" => $listCategories["id"]
+						  		));
+						  		
+						  		while($numberArticlesCategoriesResults = $numberArticlesCategoriesRequest->fetch()) {
+						  			$numberArticlesCategories++;
+						  		}
+							  	?>
+								<tr>
+									<td><?php echo($listCategories["name"]); ?></td>
+									<td class="justify-content-end"><span class="badge" style="font-size: 1rem; color: #fff; background-color: #<?php echo($listCategories['color']); ?>;"><?php echo($numberArticlesCategories); ?></span></td>
+								</tr>
+								<?php
+							}
+							?>
+	  					</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="container">
