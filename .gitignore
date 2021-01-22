@@ -1,3 +1,5 @@
 /includes/mysql-config.json
 includes/mysql-config.json
-includes/mysql-config.json
+*/*.json
+*.json
+*.sql

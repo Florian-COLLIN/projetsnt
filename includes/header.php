@@ -9,19 +9,20 @@
 				<i class="fas fa-lg fa-user icon-user" id="icon-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </i>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="icon-user">
 				<?php
-				if(!isset($_SESSION["logged"]) or !$_SESSION["logged"]) {
+				echo "<script>alert(".$_SESSION[""].");</script>";
+				if(!isset($_SESSION["logged"]) || !$_SESSION["logged"]) {
 					?><a class="dropdown-item" href="login.php?type=connection">Se connecter</a>
 					<a class="dropdown-item" href="login.php?type=inscription">Créer un compte</a><?php
 				}
 
 				else {
-					if(isset($_SESSION["writer"]) and $_SESSION["writer"]) {
+					if(isset($_SESSION["writer"]) && $_SESSION["writer"]) {
 						?>
 						<a class="dropdown-item" href="edit-article.php?id=0">Créer un article</a>
 						<a class="dropdown-item" href="upload-file.php">Importer un fichier</a>
 						<?php
 					}
-					if(isset($_SESSION["admin"]) and $_SESSION["admin"]) {
+					if(isset($_SESSION["admin"]) && $_SESSION["admin"]) {
 						?>
 						<a class="dropdown-item disabled" href="account-management.php">Gérer les comptes</a>
 						<?php
