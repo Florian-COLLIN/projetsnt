@@ -3,3 +3,4 @@ includes/mysql-config.json
 */*.json
 *.json
 *.sql
+*.json
