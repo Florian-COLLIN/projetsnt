@@ -7,7 +7,7 @@ $_SESSION["currentPage"] = "index.php";
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Le Point K · Accueil</title>
+		<title>InfoSports · Accueil</title>
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="fontawesome/css/all.css" />
 		<link rel="stylesheet" href="includes/styles.css" />
@@ -18,8 +18,8 @@ $_SESSION["currentPage"] = "index.php";
 		<?php include("includes/header.php"); ?>
 		<div class="jumbotron jumbotron-fluid bg-light">
 			<div class="container">
-				<h2 class="font-weight-bold">Bienvenue sur le Point K !</h2>
-				<p class="lead font-italic">Le mensuel libre du lycée Henri-Poincaré</p>
+				<h2 class="font-weight-bold">Bienvenue sur InfoSports</h2>
+				<p class="lead font-italic">Le sport en bref</p>
 			</div>
 		</div>
 		<div class="container">
