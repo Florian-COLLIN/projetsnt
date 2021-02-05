@@ -1,6 +1,6 @@
 {
-    "pseudo": "le-point-k",
-    "password": "k-p-ointlek",
-    "db-name": "le-point-k",
+    "pseudo": "root",
+    "password": "aqw741852zer_mysql",
+    "db-name": "infosports",
     "port": 3306
 }
